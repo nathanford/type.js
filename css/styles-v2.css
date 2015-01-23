@@ -1,0 +1,188 @@
+#gridnav header h2 {
+	line-height: 1.4;
+}
+
+.gridmeta .screenwidth {
+	width: 55px;
+}
+
+.gridmeta .screenwidth + label {
+	margin-left: 2%; 
+}
+
+.gridmeta [class*=screenwrap] > div {
+	display: inline-block;
+	position: relative;
+}
+
+.gridmeta .screenwrap-min {	 	
+	border-right: none;	 	
+}	 	
+	 	
+.gridmeta .screenwrap-max {	 	
+	border-left: none;	 	
+}
+
+.gridmeta .columns {
+ width: 36px;
+}
+
+.gridmeta select {
+	margin-left: 2px;
+}
+
+.ratioarea select {
+	margin-left: 0;
+}
+
+.colbar .colcons input {	 	
+	width: 50px;	 	
+	margin-right: 2px;	 	
+	margin-left: 2px;	 	
+}
+
+.colbar .colcons input:disabled {	 	
+	color: #888;	 	
+}	 	
+	 	
+.colbar .colconstype {	 	
+	width: 90px;	 	
+}	 	
+	 	
+.colbar .colconsunit {	 	
+	width: 55px;	 	
+}
+
+.colbar .colcons p, .colbar .colname p { 
+	min-width: 50px;
+	padding: 0 0.5em;
+	text-align: center;
+	display: block;
+	margin: 0 auto;
+}
+
+.colbar .colcons p {
+	width: 90px;
+}
+
+.colbar .colactions {
+	width: auto;
+}
+
+.grid .screens {
+	left: auto;
+}
+
+.ruler {
+	height: 25px; 
+	background: url(../img/ruler.png) no-repeat 0 1px;
+}
+
+.gridpreviewwidth {	 	
+	display: block;	 	
+	position: absolute;	 	
+	top: 1px;	 	
+	left: 100%;	 	
+	height: 8.5px;	 	
+	margin-left: -1px;	 	
+	border-left: 1px solid #333;	 	
+	overflow: visible;	 	
+	}	 	
+		 	
+.gridpreviewwidth p {	 	
+	color: #333;	 	
+	font-size: 9px;	 	
+	position: absolute;	 	
+	top: 10px;	 	
+	line-height: 1;	 	
+}
+
+.preview {
+	font-size: 16px;
+}
+
+#usesettingsform label, #usesettingsform input[type=text] { 
+	width: 50%;
+}
+
+.check {
+	padding: 0 23px;
+	padding: 0 2.3rem;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	border-left: 1px solid #e6e6e7;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-moz-box-shadow: inset 0 1px 0 #fff;
+	-webkit-box-shadow: inset 0 1px 0 #fff;
+	box-shadow: inset 0 1px 0 #fff;
+}
+
+#fulldownload { 
+	background: #f8f8f7;
+	padding: 20px 2em;
+	padding: 2rem 2em;
+}
+
+#fulldownload .button {
+	float: left;
+	clear: left;
+	margin-top: 10px;
+	margin-top: 1rem;
+	font-size: 15px;
+	font-size: 1.5rem;
+	padding: 14px 1.5em 7px;
+	height: 45px;
+}
+
+.check input[type=checkbox] {
+	padding: 0;
+	height: 15px;
+	width: 15px;
+	float: right;
+	margin-top: 1.8em;
+}
+
+.iegrids-wrap {	 	
+	clear: both;	 	
+	display: block;	 	
+	width: 100%;	 	
+	width: calc(100% - 1em);	 	
+	border: 1px solid #ddd;	 	
+	border-bottom: none;	 	
+	margin: 0.5em 0 0.5em 1em;	 	
+	float: left;	 	
+}	 	
+		 	
+.iegrids-wrap fieldset {	 	
+	padding: 0.5em 0;	 	
+	background: #fff;	 	
+}	 	
+		 	
+.iegrids-wrap .check input[type=checkbox] {	 	
+	margin-top: 1.2em;
+	width: 15px !important;	 	
+}
+
+#purchaselist {
+	margin-top: 0;
+}
+
+#paymentoptions > article {
+	text-align: center;
+}
+
+@media only screen and (min-width: 1350px) {
+	
+	.grid .screens {
+		left: auto;
+	}
+	
+	.gridmeta .screenwrap-max {
+		text-align: left;
+	}
+	
+}

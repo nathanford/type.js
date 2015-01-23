@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<meta charset=utf-8 />
+<meta name="author" content="Nathan Ford" />
+<meta name="description" content="Stylefill demo.html" />
+
+<title>Stylefill Demo</title>
+
+<link href="./css/styles.css" rel="stylesheet" />
+
+<style type="text/css">
+
+	body {
+		padding: 5% 10% 10%;
+		font-family: 'Droid Sans', 'Lucida Sans', sans-serif;
+		font-size: 18px;
+		line-height: 1.6;
+	}
+
+	h1 {
+		font-size: 3em;
+		font-size: 4vw;
+		max-font-size: 50px;
+		min-font-size: 30px;
+		margin: 0 0 1em;
+		line-height: 1.2;
+		kerning-pairs: az 0.02em,
+									 zy 0.01em,
+									 th 0.01em,
+									 ov -0.02em,
+									 ox -0.04em,
+									 og 0.005em,
+									 x  -0.04em,
+									 y  -0.04em,
+									 um -0.01em; 
+	}
+	
+	h2 {
+		font-size: 1.5em;
+		margin: 1em 0 1em;
+		max-width: 20em;
+		kerning-pairs: az 0.02em;
+	}
+	
+	h3 {
+		font-size: 1em;
+		margin: 1em 0 0;
+	}
+	
+	h4 {
+		margin: 1em 0 2em;
+		font-weight: 400;
+		font-style: italic;
+	}
+	
+	p, li, h3, dd {
+		max-width: 35em;
+		rag-adjust: small-words;
+		widow-adjust: padding-right;
+	}
+	
+	p {
+		margin: 0;
+	}
+	
+	p + p {
+		text-indent: 1em;
+	} 
+	
+	a {
+		text-decoration: underline;
+	}
+	
+	li {
+		margin-bottom: 1ex;
+	}
+	
+	blockquote {
+		margin: 1em;
+		font-style: italic;
+	}
+
+</style>
+
+</head>
+<body id="index">
+	
+	<article>
+	
+		<h1>A quick <a href="https://www.google.com/maps/preview#!q=Half+Price+Books&data=!1m4!1m3!1d84135!2d-96.889158!3d32.85969!4m52!2m11!1m10!1s0x864e9f913accb9db%3A0xc3b1459695fe5c6a!3m8!1m3!1d84135!2d-96.889158!3d32.85969!3m2!1i1680!2i1205!4f13.1!5m39!1m38!1shpb+near+NW+Hwy%2C+Dallas%2C+TX!4m8!1m3!1d336690!2d-96.614685!3d32.945772!3m2!1i1680!2i1205!4f13.1!5b1!10b1!19m6!1e1!1e2!1e9!1e10!1e12!4smaps_sv.tactile!20m13!1e1!1e2!1e3!1e4!1e5!1e9!1e10!1e11!1e12!2m2!1i203!2i100!5smaps_sv.tactile!26m4!1e12!1e13!1e3!4smaps_sv.tactile" title="Google map to my favorite book store!">brown fox</a> jumps <em>over <strong>the</strong> lazy dog</em>.</h1>
+	
+		<p class="standfirst">In my <a href="http://24ways.org/2013/run-ragged/">fourth article for 24ways</a> over the years, I wrote about typesetting the right rag.</p>
+		
+		<p>One of the first little typesetting trips I was taught – in my internship at an advertising agency – all those years ago, was how to make text fit within a given space, but still read well. This involved a dance of hyphenation, letter-spacing, leading and type-size. But a crucial ingredient of this recipe was the soft-return.</p>
+		
+		<p>Scanning a piece of text I was looking for certain criteria – or <a href="http://24ways.org/2013/run-ragged/">violations</a> – that needed a soft-return (or, in Quark XPress, shift-return). Using those violations, I would typeset the right-rag of the piece of text, and then use hyphenation, and what-not, to tease the rag into as smooth a line as possible. All whilst ensuring the content was pleasurable to read. In a perverse kind of way.</p>
+		
+		<p>My article on 24ways is about how we can apply this thinking to the web, where the inherent lack of control on the medium means we have to apply things in a slightly different (read: clumsy) way.</p>
+		
+		<p><a href="https://twitter.com/emmaboulton">Emma</a> read the article this morning and pretty much summed up the way I feel when I read text sometimes.</p>
+		
+		<blockquote>
+		  <p>“Another article by <a href="https://twitter.com/markboulton">@markboulton</a> which gives me a glimpse into how broken the world looks through his eyes” – <a href="https://twitter.com/emmaboulton/status/415402659274039296">Emma Boulton</a></p>
+		</blockquote>
+		
+		<p>Just like a musician listens to music, I view text in a different way to most people. I just forget that I do it most of the time.</p>
+		
+		<p>I can hardly believe that 24ways has been running <a href="http://24ways.org/2005/">since 2005</a>. In the web years, that’s like 72 years ago. It’s a credit to <a href="http://allinthehead.com/">Drew</a>, <a href="http://suda.co.uk/">Brian</a>, <a href="http://maban.co.uk/">Anna</a>, and <a href="http://fullcreammilk.co.uk/">Owen</a>. It’s not easy running this year in, year out, on a daily publishing schedule for a month. Hours and hours of work go into this, and we should all be thankful for their time and effort. Oh, and let’s not forget <a href="http://paulrobertlloyd.com/">Paul</a>, who has given 24ways a lovely redesign this year (you can <a href="http://paulrobertlloyd.com/2013/12/redesigning_24_ways/">read more about that</a> on his blog)</p>
+			
+		<p class="meta filed-in">Filed in: <a href="/journal/categories/typography">Typography</a>, <a href="/journal/categories/24ways">24ways</a>, <a href="/journal/categories/design">Design</a>. </p>
+	
+	</article>
+	
+	<script src="./js/typo.js" type="text/javascript"></script>
+		
+</body>
+</html>
