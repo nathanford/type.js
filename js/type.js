@@ -1,4 +1,4 @@
-/*  Typo.js
+/*  Type.js
 		by Nathan Ford
 		@nathan_ford
 		
@@ -134,10 +134,20 @@ var stylefill = {
 	getStyleSheets : function (property, func) {
 	
 		var sheetstext = new Array(),
-				stylesheets = Array.prototype.slice.call(document.querySelectorAll('link[href*=".css"]')); // grab stylesheet links - not used yet
+				stylesheets = Array.prototype.slice.call(document.querySelectorAll('link[href*=".css"]')), // grab stylesheet links - not used yet
 				
-		if (document.getElementsByTagName('style').length > 0) stylesheets.push(Array.prototype.slice.call(document.getElementsByTagName('style'))[0]); // add on page CSS
-		
+				styleEles = document.getElementsByTagName('style');
+				
+		if (styleEles.length > 0) {
+			
+			for (i in styleEles) {
+				
+				if (styleEles[i].innerHTML) stylesheets.push(Array.prototype.slice.call(styleEles)[i]); // add on page CSS
+			
+			}
+			
+		}
+			
 		this.sheets = stylesheets;
 		
 		this.loadStyles(0);
@@ -212,7 +222,7 @@ var stylefill = {
 
 };
 
-var typo = {
+var type = {
 
 	kerningPairs : function (rules) {
 		
@@ -279,28 +289,34 @@ var typo = {
 		
 		};
 		
-		for (i in rules) {
-			
-			if (rules[i] && rules[i] != 'none') {
-			
-				var rule = rules[i],
-						eles = document.querySelectorAll(rule.selector),
-						elescount = eles.length,
+		var kernAll = function () {
+		
+			for (i in rules) {
+				
+				if (rules[i] && rules[i] != 'none') {
+				
+					var rule = rules[i],
+							eles = document.querySelectorAll(rule.selector),
+							elescount = eles.length,
+							
+							val = rule.value,
+							pairs = val.split(',');
 						
-						val = rule.value,
-						pairs = val.split(',');
-					
-				while (elescount-- > 0) {
-					
-					var ele = eles[elescount];
-					
-					traverseNodes(ele, pairs);
-					
+					while (elescount-- > 0) {
+						
+						var ele = eles[elescount];
+						
+						traverseNodes(ele, pairs);
+						
+					}
+				
 				}
 			
 			}
 		
-		}		
+		};
+		
+		window.addEventListener('load', kernAll, false);	
 		
 	},
 
@@ -329,29 +345,29 @@ var typo = {
 					
 					// replace prepositions (greater than 3 characters)
 					elehtml = elehtml.replace(preps, function(contents, p1, p2) {
-					        return p1 + p2.replace(/\s/gi, '&#160;');
-					    });
+								    	return p1 + p2.replace(/\s/gi, '&#160;');
+								    });
 				
 				if (rule.value == 'small-words' || rule.value == 'all') 
 					
 					// replace small words
 					elehtml = elehtml.replace(smallwords, function(contents, p1, p2) {
-			        return p1 + p2.replace(/\s/g, '&#160;');
-			    }); 
+									    return p1 + p2.replace(/\s/g, '&#160;');
+								    }); 
 			    
 			  if (rule.value == 'dashes' || rule.value == 'all') 
 			  	
 			  	// replace small words
 			  	elehtml = elehtml.replace(dashes, function(contents) {
-			        return contents.replace(/\s/g, '&#160;');
-			    });
+								    	return contents.replace(/\s/g, '&#160;');
+								    });
 				
 				if (rule.value == 'emphasis' || rule.value == 'all') 
 				
 					// emphasized text
 					elehtml = elehtml.replace(emphasis, function(contents, p1, p2, p3, p4, p5) {
-					        return p1 + p3.replace(/\s/gi, '&#160;') + p5;
-					    });
+								    	return p1 + p3.replace(/\s/gi, '&#160;') + p5;
+								    });
 				
 				ele.innerHTML = elehtml;
 				
@@ -367,7 +383,7 @@ var typo = {
 			
 			var rule = rules[i];
 		
-			if (rule.value != 'none') typo.minMaxFontSize(rule.selector);
+			if (rule.value != 'none') type.minMaxFontSize(rule.selector);
 		
 		}
 		
@@ -379,7 +395,7 @@ var typo = {
 			
 			var rule = rules[i];
 		
-			if (rule.value != 'none') typo.minMaxFontSize(rule.selector);
+			if (rule.value != 'none') type.minMaxFontSize(rule.selector);
 		
 		}
 			
@@ -387,8 +403,8 @@ var typo = {
 	
 	minMaxFontSize : function (selector) {
 	
-		window.onload = window.onresize = function () {
-				
+		var changeSize = function () {
+		
 			var eles = document.querySelectorAll(selector),
 					elescount = eles.length;
 			
@@ -409,15 +425,22 @@ var typo = {
 					
 			}
 		
+		};
+		
+		if (selector) {
+		
+			changeSize();
+			window.addEventListener('resize', changeSize, false);
+		
 		}
-
+		
 	},
 	
 	widowAdjust : function (rules) {
 		
 		var fixMethod = function (method) {
 		
-			return method.replace(/-([a-zA-Z])/, function (m) {
+			return method.replace(/-([a-zA-Z])/g, function (m) {
 				
 				return m.replace('-','').toUpperCase();
 				
@@ -440,7 +463,7 @@ var typo = {
 		var runTamer = function (ele, method) {
 				
 			// check if more than one line
-			if (ele.offsetHeight > typo.getStyle(ele, 'line-height', true)) {
+			if (ele.offsetHeight > type.getStyle(ele, 'line-height', true)) {
 				
 				// find a textnode longer than chars
 				var nodes = ele.childNodes,
@@ -450,8 +473,17 @@ var typo = {
 						countText = getText(ele);
 			
 				if (countText) {
+							
+					// Reset line-heights and font-size for precise measurement
+					for (j in nodes) {
+					
+						if (nodes[j].innerHTML) nodes[j].style['line-height'] = '1 !important';
+						
+					};
+						
+					var height = ele.offsetHeight;
 				
-					tamer(countText, ele, 0, method);
+					tamer(countText, ele, height, 0, method);
 				
 				}
 				
@@ -459,19 +491,18 @@ var typo = {
 		
 		}
 		
-		var tamer = function (text, ele, i, method) {
+		var tamer = function (text, ele, height, i, method) {
 			
-			var height = ele.offsetHeight,
-					origHTML = ele.innerHTML; 
+			var origHTML = ele.innerHTML;
 			
 			setText(ele, text.slice(0, -14));
-			
+						
 			if (ele.offsetHeight < height) {
 				
-				if (method == 'nbsp') setText(c, getText( text ) + text.slice(-14).replace(/\s/g, '\u00a0'));
+				if (method == 'nonBreakingSpace') setText(ele, origHTML.replace(/\s([^\s]+)$/, '&#160;$1'));
 				
 				else {
-						
+
 					var inc = (method.match('padding')) ? 1 : 5,
 							amount = (method.match('padding')) ? (i / 100) : (i / 1000);
 					
@@ -482,7 +513,7 @@ var typo = {
 					
 					setText(ele, origHTML);
 					
-					if (i < 100) tamer(text, ele, i + inc, method);
+					if (i < 500) tamer(text, ele, height, i + inc, method);
 					
 				}
 			
@@ -491,36 +522,42 @@ var typo = {
 			
 		}
 		
-		for (i in rules) {
+		var adjustWidows = function () {
 		
-			var rule = rules[i];
+			for (i in rules) {
 			
-			if (rule) {
-			
-				var	eles = document.querySelectorAll(rule.selector),
-						elescount = eles.length,
-						
-						method = fixMethod(rule.value);
+				var rule = rules[i];
 				
-				switch (method) {
-					
-					case 'paddingRight': case 'nbsp': case 'paddingLeft': case 'wordSpacing': case 'letterSpacing' : case undefined :
-					
-						while (elescount-- > 0) {
-						
-							runTamer(eles[elescount], method);
+				if (rule) {
+				
+					var	eles = document.querySelectorAll(rule.selector),
+							elescount = eles.length,
 							
-						}
-						
-						break;
+							method = fixMethod(rule.value);
 					
-					default : console.log('Invalid method. Please use either padding-right, padding-left, word-spacing, or letter-spacing.'); 
+					switch (method) {
+						
+						case 'paddingRight': case 'nonBreakingSpace': case 'paddingLeft': case 'wordSpacing': case 'letterSpacing' : case undefined :
+						
+							while (elescount-- > 0) {
+							
+								runTamer(eles[elescount], method);
+								
+							}
+							
+							break;
+						
+						default : console.log('Invalid method. Please use either padding-right, padding-left, word-spacing, or letter-spacing.'); 
+					
+					}
 				
 				}
 			
 			}
 		
-		}
+		};
+		
+		window.addEventListener('load', adjustWidows, false);
 		
 	},
 	
@@ -546,10 +583,10 @@ stylefill.options({
 
 stylefill.init({
 
-	'kerning-pairs' : typo.kerningPairs,
-	'rag-adjust' : typo.ragAdjust,
-	'max-font-size' : typo.maxFontSize,
-	'min-font-size' : typo.minFontSize,
-	'widow-adjust' : typo.widowAdjust
+	'max-font-size' : type.maxFontSize,
+	'min-font-size' : type.minFontSize,
+	'kerning-pairs' : type.kerningPairs,
+	'rag-adjust' : type.ragAdjust,
+	'widow-adjust' : type.widowAdjust
 
 });

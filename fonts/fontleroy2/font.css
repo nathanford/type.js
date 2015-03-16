@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Fontleroy Brown NF';
+  src: url('FontleroyBrownNF.eot'); /* IE9 Compat Modes */
+  src: url('FontleroyBrownNF.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('FontleroyBrownNF.woff') format('woff'), /* Modern Browsers */
+       url('FontleroyBrownNF.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('FontleroyBrownNF.svg#1c8403ecf2dd356d55373f89328d8ba0') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<meta charset=utf-8 />
+<meta name="author" content="Nathan Ford" />
+<meta name="description" content="Type.js" />
+
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0" />
+
+<title>Type.js</title>
+
+<link href="./css/styles.css" rel="stylesheet" />
+
+</head>
+<body>
+
+	<header id="site-header">
+	
+		<h1>Type.js</h1>
+		
+		<h2>Typography tools for better web type.</h2>
+		
+		<p>Type.js allows you to write <a href="#properties">new CSS properties</a> to take finer typographic control of type styles on the web.</p>
+	
+	</header>
+	
+	<section id="implementation">
+		
+		<div id="download" class="box clearfix">
+			
+			<a class="button" href="https://github.com/nathanford/type.js">Grab type.js on GitHub</a>
+			
+			<p class="detail">Latest version: 1.0</p>
+			
+		</div>
+		
+		<h2>Implementation</h2>
+		
+		<p>Set up is simple. Upload <code>type.js</code> to your site, and link it in your HTML, just before the end of the <code>body</code>.</p>
+		
+		<figure>
+			<pre>&lt;script src="./type.js" type="text/javascript">&lt;/script></pre>
+		</figure>
+		
+		<p>Next, add a <code>style</code> tag before the <code>script</code>, and write these new CSS properties just like you would any other styles. This is a good start:</p>
+		
+		<figure>
+			<pre>&lt;style>
+  body {
+    min-font-size: 16px;
+  }
+  p, li, dd {
+    rag-adjust: small-words;
+    widow-adjust: padding-right;
+  }
+&lt;/style>
+
+&lt;script src="./type.js" type="text/javascript">&lt;/script></pre>
+		</figure>
+		
+		<p><strong>Note:</strong> These new properties will only work with on-page CSS in a <code>style</code> tag. Styles in external CSS files, or inline-styles will not be recognized, <a href="#issues">for now</a>.</p>
+		
+	</section>
+	
+	<section id="properties">
+	
+		<h2>Properties</h2>
+	
+		<h3>Kerning Pairs</h3>
+		<p>Manually adjust the space between two specific glyphs with a simple syntax. Read more <a href="http://artequalswork.com/posts/manual-kerning/" title="A Manual Kerning Method for the Web on Art=Work">about manual kerning</a> here.</p>
+	
+		<h4>Properties</h4>
+		<p><code>kerning-pairs</code> accepts a comma separated list of two glyphs, then the distance you want between them. Accepts positive or negative distances.</p>
+		
+		<figure>
+			<pre>kerning-pairs: az 0.02em;</pre>
+		</figure>
+		
+		<h4>Values</h4>
+		<p><code>{Any glyph}{Any glyph} {Any distance}{Any CSS unit}</code></p>
+		
+		<h4>Example CSS</h4>
+		
+		<figure>
+			<pre>h1 {
+  font-size: 3em;
+  line-height: 1.2;
+  kerning-pairs: az 0.02em,
+                 zy 0.01em,
+                 th 0.01em,
+                 ov -0.02em; 
+}</pre>
+		</figure>
+		
+		<h3>Rag Adjust</h3>
+		<p>Set rules for where lines will to break in a paragraph. Read more <a href="http://24ways.org/2013/run-ragged/" title="Run Ragged on 24 ways">about rag rules</a> here.</p>
+		
+		<h4>Properties</h4>
+		<p><code>rag-adjust</code> accepts a comma separated list of two glyphs, then the distance you want between them. Accepts positive or negative distances.</p>
+		
+		<figure>
+			<pre>rag-adjust: small-words;</pre>
+		</figure>
+		
+		<h4>Values</h4>
+		<ul>
+			<li><p><code>emphasis</code> &ndash; Text of three or less words in bold or italics does not break across lines.</p></li>
+			<li><p><code>small-words</code> &ndash; Breaks lines before words of three or less characters.</p></li>
+			<li><p><code>prepositions</code> &ndash; Breaks lines before prepositions. (English language only, for now.)</p></li>
+			<li><p><code>dashes</code> &ndash; Breaks lines before hyphens and dashes.</p></li>
+			<li><p><code>all</code> &ndash; Breaks lines before all of the above.</p></li>
+		</ul>
+		
+		<h4>Example CSS</h4>
+		<figure>
+			<pre>p, li, h3, dd {
+  max-width: 35em;
+  rag-adjust: small-words;
+}</pre>
+		</figure>
+		
+		<h3>Widow Adjust</h3>
+		<p>Set rules for eliminating widows &ndash; or any grouping of less than 14 characters on the last line of a paragraph. Read more <a href="http://artequalswork.com/posts/on-widows/" title="On Widows, and How to Tame Them on Art=Work">about fixing widows</a> here.</p>
+		
+		<h4>Properties</h4>
+		<p><code>widow-adjust</code> accepts the style property you want to use to fix your paragraph.</p>
+		
+		<figure>
+			<pre>widow-adjust: padding-right;</pre>
+		</figure>
+		
+		<h4>Values</h4>
+		<ul>
+			<li><p><code>padding-right</code> &ndash; Increases <code>padding-right</code> until the widow is fixed. (Using <code>box-sizing:border-box;</code>)</p></li>
+			<li><p><code>padding-left</code> &ndash; Increases <code>padding-left</code> until the widow is fixed. (Using <code>box-sizing:border-box;</code>)</p></li>
+			<li><p><code>word-spacing</code> &ndash; Removes <code>word-spacing</code> until the widow is fixed.</p></li>
+			<li><p><code>non-breaking-space</code> &ndash; Adds a non-breaking space character (<code>&#160;</code>) between the last two words of the paragraph.</p></li>
+		</ul>
+		
+		<h4>Example CSS</h4>
+		<figure>
+			<pre>p, li, h3, dd {
+  max-width: 35em;
+  widow-adjust: padding-right;
+}</pre>
+		</figure>
+		
+		<h3>Min/max font-size</h3>
+		<p>Set a minimum and maximum font-size for text when using a viewport unit for <code>font-size</code>.</p>
+		
+		<h4>Properties</h4>
+	 	<p><code>min-font-size</code> and <code>max-font-size</code> accepts any <code>font-size</code> value and CSS unit. Does not accept viewport units.</p>
+	 	
+	 	<figure>
+			<pre>min-font-size: 20px;</pre>
+		</figure>
+		
+		<h4>Values</h4>
+		<p><code>{Any value}{Any css unit}</code></p>
+		
+		<h4>Example CSS</h4>
+		<figure>
+			<pre>h1 {
+  font-size: 4vw;
+  max-font-size: 50px;
+  min-font-size: 30px;
+}</pre>
+		</figure>
+		
+	</section>
+	
+	<section id="issues">
+	
+		<h2>Issues</h2>
+		
+		<p>Type.js only works within <code>style</code> tags on a page. For now. You can try using your external stylesheets by changing an option in the <code>Type.js</code> file. Change:</p>
+		
+		<figure>
+			<pre>stylefill.options({
+  externalCSS : false			
+});</pre>
+		</figure>
+		
+		<p>&hellip;to:</p>
+		
+		<figure>
+		<pre>stylefill.options({
+  externalCSS : true		
+});</pre>
+		</figure>
+		
+		<p><strong>Note:</strong> This will cause the browser to download your external CSS files twice. Once, as per usual, and again to read the <code>Type.js</code> property values.</p>
+		
+		<p>You can <a href="https://github.com/nathanford/type.js/issues" title="View issues">discuss this and more issues on GitHub</a>.</p>
+	
+	</section>
+	
+	<footer id="site-footer">
+		
+		<p>Created by Nathan Ford of <a href="http://artequalswork.com" title="Visit Art=Work">Art=Work</a>. Comments, questions, concerns? Bother me on Twitter: <a href="http://twitter.com/nathan_ford">@nathan_ford</a></p>
+		
+	</footer>
+	
+	<style>
+		
+		body {
+			min-font-size: 12px;
+		}
+		
+		h1 {
+			kerning-pairs: Ty -0.05em,
+										 e. -0.1em,
+										 .j -0.2em,
+										 js -0.04em;
+		}
+		
+		#site-header h2 {
+			widow-adjust: non-breaking-space;
+		}
+	
+		p, li {
+			rag-adjust: small-words;
+			widow-adjust: padding-right;
+		}
+		
+	</style>
+	
+	<script src="./js/type.js" type="text/javascript"></script>
+
+</body>
+</html>

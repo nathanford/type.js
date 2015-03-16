@@ -1,7 +1,7 @@
-Typo.js
+Type.js
 =======
 
-Typo.js adds new type properties to your CSS, giving you the control you need for type on the web. You can write these properties in your CSS and they will work like any other property.
+Type.js adds new type properties to your CSS, giving you the control you need for type on the web. You can write these properties in your CSS and they will work like any other property.
 
 View `demo.html` to see these new properties in action.
 
@@ -98,7 +98,7 @@ h1 {
 
 ## Issues
 
-Typo.js only works within `style` tags on a page. For now. You can try using your external stylesheets by changing an option in the `typo.js` file. Change:
+Type.js only works within `style` tags on a page. For now. You can try using your external stylesheets by changing an option in the `type.js` file. Change:
 
 ```JS
 stylefill.options({
@@ -117,4 +117,4 @@ stylefill.options({
 });
 ```
 
-_Note:_ This will cause the browser to download your external CSS files twice. Once, as per usual, and again to read the `typo.js` property values. 
+_Note:_ This will cause the browser to download your external CSS files twice. Once, as per usual, and again to read the `type.js` property values. 
