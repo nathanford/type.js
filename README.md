@@ -3,7 +3,7 @@ Type.js
 
 Type.js adds new type properties to your CSS, giving you the control you need for type on the web. You can write these properties in your CSS and they will work like any other property.
 
-View `demo.html` to see these new properties in action.
+View `index.html` to see these new properties in action.
 
 ## Properties
 
@@ -33,7 +33,7 @@ h1 {
 Set rules for where you want your lines to break in a paragraph.
 
 #### Properties
-`rag-adjust` accepts a comma separated list of two glyphs, then the distance you want between them. Accepts positive or negative distances.
+`rag-adjust` accepts four values that describe where your lines should break.
 ```CSS
 rag-adjust: small-words;
 ```
