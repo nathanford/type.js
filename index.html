@@ -4,20 +4,23 @@
     
 <meta charset=utf-8 />
 <meta name="author" content="Nathan Ford" />
-<meta name="description" content="Type.js" />
+<meta name="description" content="Typography tools for better web type. Type.js allows you to write new CSS properties to take finer typographic control of type styles on the web." />
 
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0" />
 
-<title>Type.js</title>
+<title>type.js</title>
 
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
 <link href="./css/styles.css" rel="stylesheet" />
 
 </head>
 <body>
 
+	<div id="toggler">See it in action: <a id="toggle" rel="on" href="#">Turn off type.js</a></div>
+
 	<header id="site-header">
 	
-		<h1>Type.js</h1>
+		<h1>type.js</h1>
 		
 		<h2>Typography tools for better web type.</h2>
 		
@@ -61,6 +64,14 @@
 		
 		<p><strong>Note:</strong> These new properties will only work with on-page CSS in a <code>style</code> tag. Styles in external CSS files, or inline-styles will not be recognized, <a href="#issues">for now</a>.</p>
 		
+	</section>
+	
+	<section id="examples">
+		
+		<h2>Examples</h2>
+		
+		<p>This whole page is an example! Inspect away to see how it works.</p>
+	
 	</section>
 	
 	<section id="properties">
@@ -209,10 +220,11 @@
 		}
 		
 		h1 {
-			kerning-pairs: Ty -0.05em,
-										 e. -0.1em,
-										 .j -0.2em,
-										 js -0.04em;
+			kerning-pairs: ty -0.05em,
+										 pe -0.01em,
+										 e. -0.18em,
+										 .j -0.28em,
+										 js -0.1em;
 		}
 		
 		#site-header h2 {
@@ -227,6 +239,51 @@
 	</style>
 	
 	<script src="./js/type.js" type="text/javascript"></script>
+	
+	<script type="text/javascript">
+		
+		var toggle = document.getElementById('toggle');
+		
+		toggle.addEventListener('click', function(e) {
+			
+			if (this.rel == 'on') {
+			
+				var eles = document.querySelectorAll('*'),
+						spans = document.querySelectorAll('span');
+						
+				spans[0].parentNode.textContent = spans[0].parentNode.textContent
+				
+				for (i in eles) {
+				
+					var ele = eles[i];
+					
+					if (ele.innerHTML) ele.removeAttribute('style');
+					
+				}
+				
+				this.setAttribute('rel', 'off');
+				this.textContent = 'Turn on type.js'
+			
+			}
+			else {
+				
+				window.location.reload(false);
+				
+			}
+			
+			prevent(e);	
+		
+		}, false);
+		
+		function prevent (e) {
+		
+			if (e.preventDefault) e.preventDefault();
+			else event.returnValue = false;
+		
+		}
+	
+	
+	</script>
 
 </body>
 </html>

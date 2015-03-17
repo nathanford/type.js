@@ -138,36 +138,36 @@ For modern browsers */
 
 @font-face {
   font-family: 'ClearSans';
-  src: url('../fonts/clearsans-new/WOFF2/clear-sub.woff2') format('woff2'),
-       url('../fonts/clearsans-new/WOFF/clear-sub.woff') format('woff'),
-       url('../fonts/clearsans-new/TTF/clear-sub.ttf') format('truetype');
+  src: url('http://artequalswork.com/fonts/clearsans-new/WOFF2/clear-sub.woff2') format('woff2'),
+       url('http://artequalswork.com/fonts/clearsans-new/WOFF/clear-sub.woff') format('woff'),
+       url('http://artequalswork.com/fonts/clearsans-new/TTF/clear-sub.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'ClearSans';
-  src: url('../fonts/clearsans-new/WOFF2/clear-bold-sub.woff2') format('woff2'),
-       url('../fonts/clearsans-new/WOFF/clear-bold-sub.woff') format('woff'),
-       url('../fonts/clearsans-new/TTF/clear-bold-sub.ttf') format('truetype');
+  src: url('http://artequalswork.com/fonts/clearsans-new/WOFF2/clear-bold-sub.woff2') format('woff2'),
+       url('http://artequalswork.com/fonts/clearsans-new/WOFF/clear-bold-sub.woff') format('woff'),
+       url('http://artequalswork.com/fonts/clearsans-new/TTF/clear-bold-sub.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'ClearSans';
-  src: url('../fonts/clearsans-new/WOFF2/clear-italic-sub.woff2') format('woff2'),
-       url('../fonts/clearsans-new/WOFF/clear-italic-sub.woff') format('woff'),
-       url('../fonts/clearsans-new/TTF/clear-italic-sub.ttf') format('truetype');
+  src: url('http://artequalswork.com/fonts/clearsans-new/WOFF2/clear-italic-sub.woff2') format('woff2'),
+       url('http://artequalswork.com/fonts/clearsans-new/WOFF/clear-italic-sub.woff') format('woff'),
+       url('http://artequalswork.com/fonts/clearsans-new/TTF/clear-italic-sub.ttf') format('truetype');
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'ClearSans';
-  src: url('../fonts/clearsans-new/WOFF2/clear-bolditalic-sub.woff2') format('woff2'),
-       url('../fonts/clearsans-new/WOFF/clear-bolditalic-sub.woff') format('woff'),
-       url('../fonts/clearsans-new/TTF/clear-bolditalic-sub.ttf') format('truetype');
+  src: url('http://artequalswork.com/fonts/clearsans-new/WOFF2/clear-bolditalic-sub.woff2') format('woff2'),
+       url('http://artequalswork.com/fonts/clearsans-new/WOFF/clear-bolditalic-sub.woff') format('woff'),
+       url('http://artequalswork.com/fonts/clearsans-new/TTF/clear-bolditalic-sub.ttf') format('truetype');
   font-weight: 700;
   font-style: italic;
 }
@@ -192,7 +192,7 @@ body {
 @media only screen and (max-width: 520px) {
 	
 body {
-	padding: 5%;
+	padding: 10% 5%;
 }
 	
 }
@@ -204,7 +204,7 @@ h1 {
 
 #site-header h1 {
 	color: #A95472;
-	font-family: Consolas, "Bitstream Vera Sans Mono", "Andale Mono", Monaco, "DejaVu Sans Mono", "Lucida Console", monospace;
+	font-family: 'Droid Sans Mono', monospace;
 	font-weight: normal;
 }
 
@@ -354,4 +354,16 @@ pre + figcaption {
 
 #site-footer p {
 	font-size: 0.8em;
+}
+
+#toggler {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	font-size: 0.8em;
+	padding: 0.5em 0 0.8em;
+	color: #999;
+	background: rgba(255,255,255,0.95);
+	border-bottom: 1px solid #fff;
+	z-index: 100;
 }

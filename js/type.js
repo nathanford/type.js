@@ -73,8 +73,6 @@ var stylefill = {
 		
 		this.properties = params;
 		
-		this.properties = params;
-		
 		this.arraySliceShim();
 				
 		this.getStyleSheets();
