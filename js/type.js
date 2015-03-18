@@ -98,11 +98,11 @@ var stylefill = {
 
     req.onreadystatechange = function () {
 
-      if (this.readyState == 4 && this.status == 200) {
+      if (this.readyState === 4 && this.status === 200) {
         stylefill.sheetTexts[url] = this.responseText;
         stylefill.loadStyles(count + 1);
       }
-      else if (this.readyState == 4 && this.status == 000) {
+      else if (this.readyState === 4 && this.status === 000) {
         stylefill.loadStyles(count + 1);
       }
     };
