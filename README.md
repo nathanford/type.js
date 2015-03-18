@@ -59,7 +59,7 @@ Set rules for how you want to adjust styles to eliminate widows – or any group
 #### Properties
 `widow-adjust` accepts the style property you want to use to fix your paragraph.
 ```CSS
-rag-adjust: padding-right;
+widow-adjust: padding-right;
 ```
 _Values:_
 * `padding-right` – Increases `padding-right` until the widow is fixed. (Using `box-sizing: border-box;`)
