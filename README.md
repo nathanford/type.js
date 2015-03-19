@@ -1,7 +1,7 @@
 Type.js
 =======
 
-Type.js adds new type properties to your CSS, giving you the control you need for type on the web. You can write these properties in your CSS and they will work like any other property.
+Type.js adds new type properties to your CSS, giving you the control you need for type on the web. You can write these properties in your CSS and they will work like any other property
 
 View `index.html` to see these new properties in action.
 
