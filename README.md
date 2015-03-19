@@ -20,12 +20,12 @@ _Values:_ {Any glyph}{Any glyph} {Any distance}{Any CSS unit}
 #### Example CSS
 ```CSS
 h1 {
-	font-size: 3em;
-	line-height: 1.2;
-	kerning-pairs: az 0.02em,
-								 zy 0.01em,
-								 th 0.01em,
-								 ov -0.02em; 
+  font-size: 3em;
+  line-height: 1.2;
+  kerning-pairs: az 0.02em,
+                 zy 0.01em,
+                 th 0.01em,
+                 ov -0.02em; 
 }
 ```
 
@@ -48,8 +48,8 @@ _Values:_
 #### Example CSS
 ```CSS
 p, li, h3, dd {
-	max-width: 35em;
-	rag-adjust: small-words;
+  max-width: 35em;
+  rag-adjust: small-words;
 }
 ```
 
@@ -71,8 +71,8 @@ _Values:_
 #### Example CSS
 ```CSS
 p, li, h3, dd {
-	max-width: 35em;
-	widow-adjust: padding-right;
+  max-width: 35em;
+  widow-adjust: padding-right;
 }
 ```
 
@@ -89,10 +89,10 @@ _Values:_ {Any value}{Any css unit}
 #### Example CSS
 ```CSS
 h1 {
-	font-size: 3em;
-	font-size: 4vw;
-	max-font-size: 50px;
-	min-font-size: 30px;
+  font-size: 3em;
+  font-size: 4vw;
+  max-font-size: 50px;
+  min-font-size: 30px;
 }
 ```
 
@@ -102,18 +102,18 @@ Type.js only works within `style` tags on a page. For now. You can try using you
 
 ```JS
 stylefill.options({
-	
-	externalCSS : false
-	
+  
+  externalCSS : false
+  
 });
 ```
 
 To:
 ```JS
 stylefill.options({
-	
-	externalCSS : true
-	
+  
+  externalCSS : true
+  
 });
 ```
 
