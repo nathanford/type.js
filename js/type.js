@@ -135,7 +135,7 @@ var stylefill = {
 				stylesheets = Array.prototype.slice.call(document.querySelectorAll('link[href*=".css"]')), // grab stylesheet links - not used yet
 				
 				styleEles = document.getElementsByTagName('style');
-				
+			
 		if (styleEles.length > 0) {
 			
 			for (i in styleEles) {
@@ -575,7 +575,7 @@ var type = {
 
 stylefill.options({
 	
-	externalCSS : false
+	externalCSS : true
 	
 });
 
