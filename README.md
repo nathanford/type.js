@@ -8,14 +8,14 @@ View `index.html` to see these new properties in action.
 ## Properties
 
 ### Kerning Pairs
-Adjust the space between specific glyphs with a clear syntax. Just type in the two glyphs you want to kern, then the amount space you want.
+Adjust the space between specific characters with a clear syntax. Just type in the two characters you want to kern, then the amount space you want.
 
 #### Properties
-`kerning-pairs` accepts a comma separated list of two glyphs, then the distance you want between them. Accepts positive or negative distances.
+`kerning-pairs` accepts a comma separated list of two characters, then the distance you want between them. Accepts positive or negative distances.
 ```CSS
 kerning-pairs: az 0.02em; 
 ```
-_Values:_ {Any glyph}{Any glyph} {Any distance}{Any CSS unit}
+_Values:_ {Any character}{Any character} {Any distance}{Any CSS unit}
 
 #### Example CSS
 ```CSS
