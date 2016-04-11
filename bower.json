@@ -3,7 +3,7 @@
   "homepage": "https://github.com/nathanford/type.js",
   "version": "1.0",
   "main": [
-    "type.js",
-    "styles.css"
+    "./js/type.js",
+    "./css/styles.css"
   ]
 }
