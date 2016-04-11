@@ -1,0 +1,9 @@
+{
+  "name": "type.js",
+  "homepage": "https://github.com/nathanford/type.js",
+  "version": "1.0",
+  "main": [
+    "./js/type.js",
+    "./css/styles.css"
+  ]
+}
